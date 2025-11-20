@@ -252,7 +252,7 @@ class SemanticKernelOrchestrator:
         This method retrieves the agent definitions from AI Foundry and creates AzureAIAgent instances for each foundry agent.
         """
         # Grab the agent definition from AI Foundry
-        triage_agent_definition = await self.client.agents.get_agent(self.agent_ids["TRIAGE_AGENT_ID"])
+        triage_agent_definition = await self.client.agents.get(self.agent_ids["TRIAGE_AGENT_ID"])
         triage_agent = AzureAIAgent(
             client=self.client,
             definition=triage_agent_definition,
