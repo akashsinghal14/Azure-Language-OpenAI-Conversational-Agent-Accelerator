@@ -16,11 +16,9 @@ declare -a regions=(
 
 declare -a models=(
     "OpenAI.GlobalStandard.gpt-4o"
-    "OpenAI.GlobalStandard.gpt-4o-mini"
     "OpenAI.GlobalStandard.text-embedding-3-small"
     "OpenAI.GlobalStandard.text-embedding-ada-002"
     "OpenAI.Standard.gpt-4o"
-    "OpenAI.Standard.gpt-4o-mini"
     "OpenAI.Standard.text-embedding-3-small"
     "OpenAI.Standard.text-embedding-ada-002"
 )

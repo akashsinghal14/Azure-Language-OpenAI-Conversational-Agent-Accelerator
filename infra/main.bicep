@@ -4,7 +4,6 @@ targetScope = 'resourceGroup'
 // GPT model:
 @description('Name of GPT model to deploy.')
 @allowed([
-  'gpt-4o-mini'
   'gpt-4o'
 ])
 param gpt_model_name string
