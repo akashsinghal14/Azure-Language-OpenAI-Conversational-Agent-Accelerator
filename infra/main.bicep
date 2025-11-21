@@ -69,8 +69,8 @@ module ai_foundry 'resources/ai_foundry.bicep' = {
     suffix: suffix
     managed_identity_name: managed_identity.outputs.name
     search_service_name: search_service.outputs.name
-    gpt_model_name: gpt_model_name
-    gpt_deployment_capacity: gpt_deployment_capacity
+    gpt_model_name: 'gpt-4o'
+    gpt_deployment_capacity: 1
     gpt_deployment_type: gpt_deployment_type
     embedding_model_name: embedding_model_name
     embedding_deployment_capacity: embedding_deployment_capacity
