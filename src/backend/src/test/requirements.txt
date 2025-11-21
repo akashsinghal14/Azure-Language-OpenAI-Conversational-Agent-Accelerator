@@ -4,7 +4,7 @@ fastapi
 openai
 azure-identity
 azure-search-documents
-azure-ai-agents
+azure-ai-agents>=1.5.0
 azure-ai-textanalytics
 azure-ai-language-conversations
 azure-ai-language-questionanswering

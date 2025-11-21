@@ -53,14 +53,14 @@ async def main():
     async with DefaultAzureCredential(exclude_interactive_browser_credential=False) as creds:
         async with AzureAIAgent.create_client(credential=creds, endpoint=PROJECT_ENDPOINT) as client:
             # Grab the agent definition from AI Foundry
-            triage_agent_definition = await client.agents.get_agent(AGENT_IDS["TRIAGE_AGENT_ID"])
+            triage_agent_definition = await client.agents.get(AGENT_IDS["TRIAGE_AGENT_ID"])
             triage_agent = AzureAIAgent(
                 client=client,
                 definition=triage_agent_definition,
                 description="A triage agent that routes inquiries to the proper custom agent"
             )
 
-            order_status_agent_definition = await client.agents.get_agent(AGENT_IDS["ORDER_STATUS_AGENT_ID"])
+            order_status_agent_definition = await client.agents.get(AGENT_IDS["ORDER_STATUS_AGENT_ID"])
             order_status_agent = AzureAIAgent(
                 client=client,
                 definition=order_status_agent_definition,
@@ -68,7 +68,7 @@ async def main():
                 plugins=[OrderStatusPlugin()],
             )
 
-            order_cancel_agent_definition = await client.agents.get_agent(AGENT_IDS["ORDER_CANCEL_AGENT_ID"])
+            order_cancel_agent_definition = await client.agents.get(AGENT_IDS["ORDER_CANCEL_AGENT_ID"])
             order_cancel_agent = AzureAIAgent(
                 client=client,
                 definition=order_cancel_agent_definition,
@@ -76,7 +76,7 @@ async def main():
                 plugins=[OrderCancellationPlugin()],
             )
 
-            order_refund_agent_definition = await client.agents.get_agent(AGENT_IDS["ORDER_REFUND_AGENT_ID"])
+            order_refund_agent_definition = await client.agents.get(AGENT_IDS["ORDER_REFUND_AGENT_ID"])
             order_refund_agent = AzureAIAgent(
                 client=client,
                 definition=order_refund_agent_definition,

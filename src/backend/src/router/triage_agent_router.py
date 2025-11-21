@@ -43,7 +43,7 @@ def create_triage_agent_router() -> Callable[[str, str, str], dict]:
         credential=credential,
         api_version="2025-05-15-preview"
     )
-    agent = agents_client.get_agent(agent_id=triage_agent_id)
+    agent = agents_client.get(agent_id=triage_agent_id)
 
     def triage_agent_router(
         utterance: str,

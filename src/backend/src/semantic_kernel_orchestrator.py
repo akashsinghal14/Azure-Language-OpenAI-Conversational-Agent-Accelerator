@@ -259,7 +259,7 @@ class SemanticKernelOrchestrator:
             description="A triage agent that routes inquiries to the proper custom agent."
         )
 
-        order_status_agent_definition = await self.client.agents.get_agent(self.agent_ids["ORDER_STATUS_AGENT_ID"])
+        order_status_agent_definition = await self.client.agents.get(self.agent_ids["ORDER_STATUS_AGENT_ID"])
         order_status_agent = AzureAIAgent(
             client=self.client,
             definition=order_status_agent_definition,
@@ -267,7 +267,7 @@ class SemanticKernelOrchestrator:
             plugins=[OrderStatusPlugin()],
         )
 
-        order_cancel_agent_definition = await self.client.agents.get_agent(self.agent_ids["ORDER_CANCEL_AGENT_ID"])
+        order_cancel_agent_definition = await self.client.agents.get(self.agent_ids["ORDER_CANCEL_AGENT_ID"])
         order_cancel_agent = AzureAIAgent(
             client=self.client,
             definition=order_cancel_agent_definition,
@@ -275,7 +275,7 @@ class SemanticKernelOrchestrator:
             plugins=[OrderCancellationPlugin()],
         )
 
-        order_refund_agent_definition = await self.client.agents.get_agent(self.agent_ids["ORDER_REFUND_AGENT_ID"])
+        order_refund_agent_definition = await self.client.agents.get(self.agent_ids["ORDER_REFUND_AGENT_ID"])
         order_refund_agent = AzureAIAgent(
             client=self.client,
             definition=order_refund_agent_definition,
@@ -283,14 +283,14 @@ class SemanticKernelOrchestrator:
             plugins=[OrderRefundPlugin()],
         )
 
-        head_support_agent_definition = await self.client.agents.get_agent(self.agent_ids["HEAD_SUPPORT_AGENT_ID"])
+        head_support_agent_definition = await self.client.agents.get(self.agent_ids["HEAD_SUPPORT_AGENT_ID"])
         head_support_agent = AzureAIAgent(
             client=self.client,
             definition=head_support_agent_definition,
             description="A head support agent that routes inquiries to the proper custom agent.",
         )
 
-        translation_agent_definition = await self.client.agents.get_agent(self.agent_ids["TRANSLATION_AGENT_ID"])
+        translation_agent_definition = await self.client.agents.get(self.agent_ids["TRANSLATION_AGENT_ID"])
         translation_agent = AzureAIAgent(
             client=self.client,
             definition=translation_agent_definition,

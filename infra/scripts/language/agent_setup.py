@@ -75,10 +75,10 @@ with agents_client:
     # If DELETE_OLD_AGENTS is set to true, delete all existing agents in the project
     if DELETE_OLD_AGENTS:
         print("Deleting all existing agents in the project...")
-        agents = agents_client.list_agents()
+        agents = agents_client.list()
         for agent in agents:
             print(f"Deleting agent: {agent.name} with ID: {agent.id}")
-            agents_client.delete_agent(agent.id)
+            agents_client.delete(agent.id)
 
     # Create the tools needed for the agents
     clu_api_tool, cqa_api_tool, translation_api_tool = create_tools(config)
@@ -169,7 +169,7 @@ with agents_client:
 
     TRIAGE_AGENT_INSTRUCTIONS = bind_parameters(TRIAGE_AGENT_INSTRUCTIONS, config)
 
-    triage_agent_definition = agents_client.create_agent(
+    triage_agent_definition = agents_client.create(
         model=MODEL_NAME,
         name=TRIAGE_AGENT_NAME,
         instructions=TRIAGE_AGENT_INSTRUCTIONS,
@@ -194,7 +194,7 @@ with agents_client:
         - "entities" is a list of all entities extracted from the CLU result, including their category and value.
     """
 
-    head_support_agent_definition = agents_client.create_agent(
+    head_support_agent_definition = agents_client.create(
         model=MODEL_NAME,
         name=HEAD_SUPPORT_AGENT_NAME,
         instructions=HEAD_SUPPORT_AGENT_INSTRUCTIONS,
@@ -208,7 +208,7 @@ with agents_client:
     You must return the response in the following valid JSON format: {"response": <OrderStatusResponse>, "terminated": "True", "need_more_info": <"True" or "False">}
     """
 
-    order_status_agent_definition = agents_client.create_agent(
+    order_status_agent_definition = agents_client.create(
         model=MODEL_NAME,
         name=ORDER_STATUS_AGENT_NAME,
         instructions=ORDER_STATUS_AGENT_INSTRUCTIONS,
@@ -221,7 +221,7 @@ with agents_client:
     You must return the response in the following valid JSON format: {"response": <OrderCancellationResponse>, "terminated": "True", "need_more_info": <"True" or "False">}
     """
 
-    order_cancel_agent_definition = agents_client.create_agent(
+    order_cancel_agent_definition = agents_client.create(
         model=MODEL_NAME,
         name=ORDER_CANCEL_AGENT_NAME,
         instructions=ORDER_CANCEL_AGENT_INSTRUCTIONS,
@@ -234,7 +234,7 @@ with agents_client:
     You must return the response in the following valid JSON format: {"response": <OrderRefundResponse>, "terminated": "True", "need_more_info": <"True" or "False">}
     """
 
-    order_refund_agent_definition = agents_client.create_agent(
+    order_refund_agent_definition = agents_client.create(
         model=MODEL_NAME,
         name=ORDER_REFUND_AGENT_NAME,
         instructions=ORDER_REFUND_AGENT_INSTRUCTIONS,
@@ -307,7 +307,7 @@ with agents_client:
     """
 
     TRANSLATION_AGENT_INSTRUCTIONS = bind_parameters(TRANSLATION_AGENT_INSTRUCTIONS, config)
-    translation_agent_definition = agents_client.create_agent(
+    translation_agent_definition = agents_client.create(
         model=MODEL_NAME,
         name=TRANSLATION_AGENT_NAME,
         instructions=TRANSLATION_AGENT_INSTRUCTIONS,
